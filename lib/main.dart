@@ -13,28 +13,29 @@ class MyApp extends StatelessWidget {
       title: "My App",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("My ListView"),
+          title: const Text("My ListView"),
         ),
         body: ListView(
+          scrollDirection: Axis.horizontal,
           children: [
             Container(
-              height: 300,
-              width: 300,
+              height: 200,
+              width: 100,
               color: Colors.red,
             ),
             Container(
-              height: 300,
-              width: 300,
+              height: 200,
+              width: 100,
               color: Colors.green,
             ),
             Container(
-              height: 300,
-              width: 300,
+              height: 200,
+              width: 100,
               color: Colors.blue,
             ),
             Container(
-              height: 300,
-              width: 300,
+              height: 200,
+              width: 100,
               color: Colors.yellow,
             )
           ],

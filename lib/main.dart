@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
-  static List<Color> myColor = [
+  final List<Color> myColor = [
     Colors.red,
     Colors.green,
     Colors.blue,
     Colors.yellow,
   ];
+
+  final List<Widget> myList =
+      List.generate(100, (index) => Text("Halo " + index.toString()));
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +30,12 @@ class MyApp extends StatelessWidget {
           separatorBuilder: (context, index) {
             return const Divider(
               height: 10,
+              color: Colors.black,
             );
           },
-          itemCount: myColor.length,
+          itemCount: myList.length,
           itemBuilder: (context, index) {
-            return Container(
-              height: 300,
-              width: 300,
-              color: myColor[index],
-            );
+            return myList[index];
           },
         ),
       ),

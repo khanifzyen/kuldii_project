@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,8 +18,8 @@ class MyApp extends StatelessWidget {
         ),
         body: Center(
           child: Text(
-            DateTime(2021, 9, 15, 15, 20).toString(),
-            style: TextStyle(fontSize: 25),
+            DateFormat.yMMMMd().add_Hms().format(DateTime.now()),
+            style: const TextStyle(fontSize: 25),
           ),
         ),
       ),

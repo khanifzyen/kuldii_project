@@ -10,57 +10,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "List Tile",
+      title: "Image",
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("List Tile"),
+          title: const Text("Image"),
         ),
-        body: ListView(
-          children: [
-            ListTile(
-              //contentPadding: EdgeInsets.all(16),
-              title: const Text("Akhmad Khanif Zyen"),
-              subtitle: const Text(
-                "This is subtitle okay This is subtitle okay This is subtitle okay This is subtitle okay",
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-              leading: const CircleAvatar(),
-              trailing: const Text("10:00 PM"),
-              //tileColor: Colors.amber,
-              onTap: () {
-                return print("Halo guys");
-              },
-            ),
-            const Divider(color: Colors.black),
-            const ListTile(
-              title: Text("Akhmad Khanif Zyen"),
-              subtitle: Text("This is subtitle okay"),
-              leading: CircleAvatar(),
-              trailing: Text("10:00 PM"),
-            ),
-            const Divider(color: Colors.black),
-            const ListTile(
-              title: Text("Akhmad Khanif Zyen"),
-              subtitle: Text("This is subtitle okay"),
-              leading: CircleAvatar(),
-              trailing: Text("10:00 PM"),
-            ),
-            const Divider(color: Colors.black),
-            const ListTile(
-              title: Text("Akhmad Khanif Zyen"),
-              subtitle: Text("This is subtitle okay"),
-              leading: CircleAvatar(),
-              trailing: Text("10:00 PM"),
-            ),
-            const Divider(color: Colors.black),
-            const ListTile(
-              title: Text("Akhmad Khanif Zyen"),
-              subtitle: Text("This is subtitle okay"),
-              leading: CircleAvatar(),
-              trailing: Text("10:00 PM"),
-            ),
-          ],
+        body: Center(
+          child: Container(
+            width: 350,
+            height: 500,
+            color: Colors.amber,
+            child: Image.network("https://picsum.photos/300/500"),
+            // child: const Image(
+            //   fit: BoxFit.scaleDown,
+            //   image: AssetImage("images/conversionrate.jpg"),
+            //   //image: NetworkImage("https://picsum.photos/200/300"),
+            // ),
+          ),
         ),
       ),
     );

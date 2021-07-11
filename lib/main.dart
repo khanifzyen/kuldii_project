@@ -5,38 +5,62 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
-
-  final List<Color> myColor = [
-    Colors.red,
-    Colors.green,
-    Colors.blue,
-    Colors.yellow,
-  ];
-
-  final List<Widget> myList =
-      List.generate(100, (index) => Text("Halo " + index.toString()));
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "My App",
-      debugShowCheckedModeBanner: false,
+      title: "List Tile",
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("My ListView"),
+          title: const Text("List Tile"),
         ),
-        body: ListView.separated(
-          separatorBuilder: (context, index) {
-            return const Divider(
-              height: 10,
-              color: Colors.black,
-            );
-          },
-          itemCount: myList.length,
-          itemBuilder: (context, index) {
-            return myList[index];
-          },
+        body: ListView(
+          children: [
+            ListTile(
+              //contentPadding: EdgeInsets.all(16),
+              title: const Text("Akhmad Khanif Zyen"),
+              subtitle: const Text(
+                "This is subtitle okay This is subtitle okay This is subtitle okay This is subtitle okay",
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              leading: const CircleAvatar(),
+              trailing: const Text("10:00 PM"),
+              //tileColor: Colors.amber,
+              onTap: () {
+                return print("Halo guys");
+              },
+            ),
+            const Divider(color: Colors.black),
+            const ListTile(
+              title: Text("Akhmad Khanif Zyen"),
+              subtitle: Text("This is subtitle okay"),
+              leading: CircleAvatar(),
+              trailing: Text("10:00 PM"),
+            ),
+            const Divider(color: Colors.black),
+            const ListTile(
+              title: Text("Akhmad Khanif Zyen"),
+              subtitle: Text("This is subtitle okay"),
+              leading: CircleAvatar(),
+              trailing: Text("10:00 PM"),
+            ),
+            const Divider(color: Colors.black),
+            const ListTile(
+              title: Text("Akhmad Khanif Zyen"),
+              subtitle: Text("This is subtitle okay"),
+              leading: CircleAvatar(),
+              trailing: Text("10:00 PM"),
+            ),
+            const Divider(color: Colors.black),
+            const ListTile(
+              title: Text("Akhmad Khanif Zyen"),
+              subtitle: Text("This is subtitle okay"),
+              leading: CircleAvatar(),
+              trailing: Text("10:00 PM"),
+            ),
+          ],
         ),
       ),
     );

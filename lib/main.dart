@@ -11,16 +11,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Date Format",
+      title: "AppBar",
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Date Format"),
+          leading: Icon(Icons.facebook),
+          title: const Text("My App Bar"),
+          actions: const [
+            Icon(Icons.search),
+            SizedBox(
+              width: 10,
+            ),
+            Icon(Icons.add),
+            SizedBox(
+              width: 10,
+            ),
+          ],
         ),
-        body: Center(
-          child: Text(
-            DateFormat.yMMMMd().add_Hms().format(DateTime.now()),
-            style: const TextStyle(fontSize: 25),
-          ),
+        body: const Center(
+          child: Text("Halo"),
         ),
       ),
     );

@@ -6,7 +6,22 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+
+  final List<Tab> myTab = const [
+    Tab(
+      icon: Icon(Icons.add_a_photo),
+      text: "Tab 1",
+    ),
+    Tab(
+      icon: Icon(Icons.ac_unit_rounded),
+      text: "Tab 2",
+    ),
+    Tab(
+      icon: Icon(Icons.access_time),
+      text: "Tab 3",
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: "AppBar",
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
-        length: 3,
+        length: myTab.length,
         child: Scaffold(
           appBar: AppBar(
             leading: Icon(Icons.facebook),
@@ -29,21 +44,8 @@ class MyApp extends StatelessWidget {
                 width: 10,
               ),
             ],
-            bottom: const TabBar(
-              tabs: [
-                Tab(
-                  icon: Icon(Icons.add_a_photo),
-                  text: "Tab 1",
-                ),
-                Tab(
-                  icon: Icon(Icons.ac_unit_rounded),
-                  text: "Tab 2",
-                ),
-                Tab(
-                  icon: Icon(Icons.access_time),
-                  text: "Tab 3",
-                ),
-              ],
+            bottom: TabBar(
+              tabs: myTab,
             ),
           ),
           body: const Center(

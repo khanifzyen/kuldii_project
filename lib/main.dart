@@ -7,28 +7,13 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static List<Widget> myList = [
-    Container(
-      height: 200,
-      width: 100,
-      color: Colors.red,
-    ),
-    Container(
-      height: 200,
-      width: 100,
-      color: Colors.green,
-    ),
-    Container(
-      height: 200,
-      width: 100,
-      color: Colors.blue,
-    ),
-    Container(
-      height: 200,
-      width: 100,
-      color: Colors.yellow,
-    )
+  static List<Color> myColor = [
+    Colors.red,
+    Colors.green,
+    Colors.blue,
+    Colors.yellow,
   ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,7 +23,16 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("My ListView"),
         ),
-        body: ListView(children: myList),
+        body: ListView.builder(
+          itemCount: myColor.length,
+          itemBuilder: (context, index) {
+            return Container(
+              height: 300,
+              width: 300,
+              color: myColor[index],
+            );
+          },
+        ),
       ),
     );
   }

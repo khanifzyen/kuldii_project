@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: myTab.length,
+        initialIndex: 1,
         child: Scaffold(
           appBar: AppBar(
             leading: Icon(Icons.facebook),
@@ -45,11 +46,51 @@ class MyApp extends StatelessWidget {
               ),
             ],
             bottom: TabBar(
+              labelColor: Colors.black54,
+              unselectedLabelColor: Colors.white,
+              labelStyle: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              unselectedLabelStyle: const TextStyle(
+                fontWeight: FontWeight.normal,
+              ),
+              //indicatorColor: Colors.green,
+              //indicatorPadding: EdgeInsets.all(10),
+              //indicatorWeight: 5,
               tabs: myTab,
+              indicator: const BoxDecoration(
+                color: Colors.amber,
+                //borderRadius: BorderRadius.circular(20),
+                border: Border(
+                  bottom: BorderSide(
+                    color: Colors.black,
+                    width: 5,
+                  ),
+                ),
+              ),
             ),
           ),
-          body: const Center(
-            child: Text("Halo"),
+          body: const TabBarView(
+            children: [
+              Center(
+                child: Text(
+                  "Tab 1",
+                  style: TextStyle(fontSize: 25),
+                ),
+              ),
+              Center(
+                child: Text(
+                  "Tab 2",
+                  style: TextStyle(fontSize: 25),
+                ),
+              ),
+              Center(
+                child: Text(
+                  "Tab 3",
+                  style: TextStyle(fontSize: 25),
+                ),
+              ),
+            ],
           ),
         ),
       ),

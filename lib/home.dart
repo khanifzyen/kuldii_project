@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         data = "false";
                       });
                       print("klik no");
-                      Navigator.of(context).pop();
+                      Navigator.of(context).pop(false);
                     },
                     child: const Text("No"),
                   ),
@@ -50,14 +50,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         data = "true";
                       });
                       print("klik yes");
-                      Navigator.of(context).pop();
+                      Navigator.of(context).pop(true);
                     },
                     child: const Text("Yes"),
                   ),
                 ],
               );
             },
-          );
+          ).then((value) => print(value));
         },
         child: const Icon(Icons.delete),
       ),

@@ -1,67 +1,78 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'dart:async';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({
-    Key? key,
-  }) : super(key: key);
+class MyHomePage extends StatelessWidget {
+  MyHomePage({Key? key}) : super(key: key);
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  String data = "Belum ada input";
+  Faker faker = Faker();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Dialog"),
+        title: Text("Dismissable"),
       ),
-      body: Center(
-        child: Text(
-          data,
-          style: const TextStyle(fontSize: 25),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print("telah diklik");
-          showDialog(
-            context: context,
-            builder: (builder) {
-              return AlertDialog(
-                title: const Text("Confirm"),
-                content: const Text("Are you sure to delete this item?"),
-                actions: [
-                  OutlinedButton(
-                    onPressed: () {
-                      setState(() {
-                        data = "false";
-                      });
-                      print("klik no");
-                      Navigator.of(context).pop(false);
-                    },
-                    child: const Text("No"),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        data = "true";
-                      });
-                      print("klik yes");
-                      Navigator.of(context).pop(true);
-                    },
-                    child: const Text("Yes"),
-                  ),
-                ],
-              );
+      body: ListView.builder(
+        itemCount: 100, //myList.length,
+        itemBuilder: (context, index) {
+          return Dismissible(
+            key: Key(index.toString()),
+            onDismissed: (direction) {
+              return print("dismissed ${index}");
             },
-          ).then((value) => print(value));
+            confirmDismiss: (direction) {
+              return showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text("Confirm"),
+                      content: Text("Are you sure want to delete?"),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            print("deleted");
+                            Navigator.of(context).pop(true);
+                          },
+                          child: Text("Yes"),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            print("false");
+                            Navigator.of(context).pop(false);
+                          },
+                          child: Text("No"),
+                        ),
+                      ],
+                    );
+                  });
+            },
+            direction: DismissDirection.endToStart,
+            background: Container(
+              color: Colors.red,
+              child: const Icon(
+                Icons.delete,
+                color: Colors.white,
+              ),
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.only(right: 10),
+            ),
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage:
+                    NetworkImage("https://picsum.photos/id/${index}/200/200"),
+              ),
+              title: Text(faker.person.name()),
+              subtitle: Text(
+                faker.lorem.sentence(),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              trailing: Text(faker.date.time()),
+            ),
+          );
         },
-        child: const Icon(Icons.delete),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

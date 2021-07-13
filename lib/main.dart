@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'pages/gallery_page.dart';
-import 'pages/home_page.dart';
-import 'pages/photo_page.dart';
+import 'widgets/my_drawer.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,13 +13,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomePage(),
-      initialRoute: HomePage.nameRoute,
-      routes: {
-        HomePage.nameRoute: (context) => HomePage(),
-        GalleryPage.nameRoute: (context) => GalleryPage(),
-        PhotoPage.nameRoute: (context) => PhotoPage(),
-      },
       debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Drawer"),
+      ),
+      body: Center(
+        child: Text(
+          "Home Page",
+          style: TextStyle(fontSize: 25),
+        ),
+      ),
+      drawer: MyDrawer(),
     );
   }
 }

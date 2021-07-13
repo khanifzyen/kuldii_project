@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class PhotoPage extends StatelessWidget {
   const PhotoPage({Key? key}) : super(key: key);
-
+  static const nameRoute = '/photopage';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,6 +11,7 @@ class PhotoPage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               "PHOTO PAGE",

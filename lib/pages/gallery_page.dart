@@ -4,7 +4,7 @@ import 'photo_page.dart';
 
 class GalleryPage extends StatelessWidget {
   const GalleryPage({Key? key}) : super(key: key);
-
+  static const nameRoute = '/gallerypage';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,10 +35,7 @@ class GalleryPage extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return PhotoPage();
-                    }));
+                    Navigator.of(context).pushNamed(PhotoPage.nameRoute);
                   },
                   child: Text(
                     "Next >>",

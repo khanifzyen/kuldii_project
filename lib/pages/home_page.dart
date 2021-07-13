@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'gallery_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-
+  static const nameRoute = '/homepage';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,11 +18,7 @@ class HomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) {
-              return GalleryPage();
-            }),
-          );
+          Navigator.of(context).pushNamed(GalleryPage.nameRoute);
         },
         child: Icon(Icons.keyboard_arrow_right),
       ),

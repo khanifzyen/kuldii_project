@@ -2,9 +2,9 @@
 
 A new Flutter project.
 
-## Switch
+## Model
 
-1. Penggunaan Switch
-2. Adaptive Switch iOS vs Android
-3. Mengubah Warna pada Switch
-4. Mengganti Bentuk Switch dengan Image
+1. Penggunaan model pada project
+2. Grid View & Grid Tile Widget
+3. Penggunaan faker
+4. List generate
